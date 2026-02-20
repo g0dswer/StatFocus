@@ -1,0 +1,600 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.StatFocus-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/sources",
+      "importPath" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/AppDelegate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/StatFocusApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/AppSettings.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/SessionStore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/StudySession.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/Color+Hex.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/DateHelpers.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/StatsViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/TimerViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Components/CircularProgressView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/BarChartView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/DashboardView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/GoalsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/HeatmapView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/SettingsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StatsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StreakView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/CycleDotsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerControlsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "StatFocus",
+      "moduleOutputPath" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/Modules/StatFocus.swiftmodule",
+      "objects" : [
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppDelegate.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatFocusApp.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppSettings.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SessionStore.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StudySession.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/Color+Hex.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DateHelpers.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsViewModel.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerViewModel.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CircularProgressView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/BarChartView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DashboardView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/GoalsView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/HeatmapView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SettingsView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StreakView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CycleDotsView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerControlsView.swift.o",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerView.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "StatFocus_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "statfocus"
+      ],
+      "outputFileMapPath" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppDelegate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatFocusApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppSettings.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SessionStore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StudySession.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/Color+Hex.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DateHelpers.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CircularProgressView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/BarChartView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DashboardView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/GoalsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/HeatmapView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SettingsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StreakView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CycleDotsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerControlsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/Modules/StatFocus.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/AppDelegate.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/StatFocusApp.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/AppSettings.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/SessionStore.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/StudySession.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/Color+Hex.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/DateHelpers.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/StatsViewModel.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/TimerViewModel.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Components/CircularProgressView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/BarChartView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/DashboardView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/GoalsView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/HeatmapView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/SettingsView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StatsView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StreakView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/CycleDotsView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerControlsView.swift",
+        "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerView.swift"
+      ],
+      "tempsPath" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "StatFocus" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "StatFocus",
+      "-package-name",
+      "statfocus",
+      "-c",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/AppDelegate.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/StatFocusApp.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/AppSettings.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/SessionStore.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/StudySession.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/Color+Hex.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/DateHelpers.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/StatsViewModel.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/TimerViewModel.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Components/CircularProgressView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/BarChartView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/DashboardView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/GoalsView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/HeatmapView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/SettingsView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StatsView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StreakView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/CycleDotsView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerControlsView.swift",
+      "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerView.swift",
+      "-I",
+      "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "StatFocus_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "statfocus",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "StatFocus" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus-entitlement.plist"
+    },
+    "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/AppDelegate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/StatFocusApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/AppSettings.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/SessionStore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/StudySession.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/Color+Hex.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/DateHelpers.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/StatsViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/TimerViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Components/CircularProgressView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/BarChartView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/DashboardView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/GoalsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/HeatmapView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/SettingsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StatsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StreakView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/CycleDotsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerControlsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerView.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/sources"
+    },
+    "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppDelegate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppSettings.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/BarChartView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CircularProgressView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/Color+Hex.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CycleDotsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DashboardView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DateHelpers.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/GoalsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/HeatmapView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SessionStore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SettingsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatFocusApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StreakView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StudySession.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerControlsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerViewModel.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.product/Objects.LinkFileList"
+    },
+    "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}

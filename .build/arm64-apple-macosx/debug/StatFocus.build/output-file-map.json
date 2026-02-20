@@ -1,0 +1,145 @@
+{
+  "": {
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/master.swiftdeps"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/AppDelegate.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppDelegate.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppDelegate.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppDelegate~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppDelegate.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppDelegate.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/App/StatFocusApp.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatFocusApp.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatFocusApp.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatFocusApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatFocusApp.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatFocusApp.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/AppSettings.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppSettings.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppSettings.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppSettings~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppSettings.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/AppSettings.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/SessionStore.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SessionStore.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SessionStore.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SessionStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SessionStore.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SessionStore.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Models/StudySession.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StudySession.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StudySession.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StudySession~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StudySession.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StudySession.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/Color+Hex.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/Color+Hex.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/Color+Hex.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/Color+Hex~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/Color+Hex.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/Color+Hex.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Utilities/DateHelpers.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DateHelpers.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DateHelpers.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DateHelpers~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DateHelpers.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DateHelpers.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/StatsViewModel.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsViewModel.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsViewModel.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsViewModel.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsViewModel.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/ViewModels/TimerViewModel.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerViewModel.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerViewModel.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerViewModel.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerViewModel.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Components/CircularProgressView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CircularProgressView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CircularProgressView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CircularProgressView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CircularProgressView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CircularProgressView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/BarChartView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/BarChartView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/BarChartView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/BarChartView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/BarChartView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/BarChartView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/DashboardView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DashboardView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DashboardView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DashboardView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DashboardView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/DashboardView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/GoalsView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/GoalsView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/GoalsView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/GoalsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/GoalsView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/GoalsView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/HeatmapView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/HeatmapView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/HeatmapView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/HeatmapView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/HeatmapView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/HeatmapView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/SettingsView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SettingsView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SettingsView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/SettingsView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StatsView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StatsView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Dashboard/StreakView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StreakView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StreakView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StreakView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StreakView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/StreakView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/CycleDotsView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CycleDotsView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CycleDotsView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CycleDotsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CycleDotsView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/CycleDotsView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerControlsView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerControlsView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerControlsView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerControlsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerControlsView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerControlsView.dia"
+  },
+  "/Users/thiagogruber/Documents/StatFocus/StatFocus/Sources/StatFocus/Views/Timer/TimerView.swift": {
+    "dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerView.d",
+    "object": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerView.swift.o",
+    "swiftmodule": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerView~partial.swiftmodule",
+    "swift-dependencies": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerView.swiftdeps",
+    "diagnostics": "/Users/thiagogruber/Documents/StatFocus/.build/arm64-apple-macosx/debug/StatFocus.build/TimerView.dia"
+  }
+}

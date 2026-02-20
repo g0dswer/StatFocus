@@ -1,0 +1,154 @@
+// StatFocus/ViewModels/StatsViewModel.swift
+import Foundation
+import Observation
+
+@Observable
+class StatsViewModel {
+    var sessions: [StudySession] = []
+    private let store: SessionStore
+
+    init(store: SessionStore = .shared) {
+        self.store = store
+        loadSessions()
+        // Refresh whenever timer saves a new session
+        NotificationCenter.default.addObserver(
+            forName: .sessionsUpdated,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.loadSessions()
+        }
+    }
+
+    func loadSessions() {
+        sessions = store.loadAll()
+            .sorted { $0.startedAt < $1.startedAt }
+    }
+
+    // MARK: - Heatmap
+
+    func heatmapData() -> [(date: Date, hours: Double)] {
+        let today = Date().dayStart
+        let startDate = today.adding(days: -364)
+        var result: [(date: Date, hours: Double)] = []
+        var current = startDate
+        while current <= today {
+            result.append((date: current, hours: focusHours(for: current)))
+            current = current.adding(days: 1)
+        }
+        return result
+    }
+
+    func focusHours(for day: Date) -> Double {
+        let cal = Calendar.autoupdatingCurrent
+        let secs = sessions
+            .filter { $0.type == .focus && cal.isDate($0.startedAt, inSameDayAs: day) }
+            .reduce(0.0) { $0 + $1.duration }
+        return secs / 3600
+    }
+
+    // MARK: - Streak
+
+    var currentStreak: Int {
+        let today = Date().dayStart
+        var streak = 0
+        var day = today
+        while focusHours(for: day) > 0 {
+            streak += 1
+            day = day.adding(days: -1)
+            if streak > 10_000 { break }
+        }
+        return streak
+    }
+
+    var bestStreak: Int {
+        guard !sessions.isEmpty else { return 0 }
+        let cal = Calendar.autoupdatingCurrent
+        let allDays = Set(
+            sessions
+                .filter { $0.type == .focus }
+                .map { cal.startOfDay(for: $0.startedAt) }
+        ).sorted()
+
+        var best = 0, current = 0
+        var prev: Date? = nil
+        for day in allDays {
+            if let p = prev,
+               cal.dateComponents([.day], from: p, to: day).day == 1 {
+                current += 1
+            } else {
+                current = 1
+            }
+            best = max(best, current)
+            prev = day
+        }
+        return best
+    }
+
+    // MARK: - Goals
+
+    var todayFocusHours: Double { focusHours(for: Date().dayStart) }
+
+    var weekFocusHours: Double {
+        let start = Calendar.autoupdatingCurrent.startOfWeek(for: Date())
+        return sessions
+            .filter { $0.type == .focus && $0.startedAt >= start }
+            .reduce(0.0) { $0 + $1.duration } / 3600
+    }
+
+    // MARK: - Bar Chart
+
+    enum ChartPeriod: String, CaseIterable {
+        case day   = "Dia"
+        case week  = "Semana"
+        case month = "Mês"
+        case year  = "Ano"
+    }
+
+    func barChartData(period: ChartPeriod) -> [(label: String, hours: Double)] {
+        let cal = Calendar.autoupdatingCurrent
+
+        switch period {
+        case .day:
+            return (0..<7).reversed().map { offset -> (label: String, hours: Double) in
+                let day = Date().dayStart.adding(days: -offset)
+                let label = cal.shortWeekdaySymbols[cal.component(.weekday, from: day) - 1]
+                return (label: label, hours: focusHours(for: day))
+            }
+
+        case .week:
+            let thisWeek = cal.startOfWeek(for: Date())
+            return (0..<8).reversed().map { offset -> (label: String, hours: Double) in
+                let weekStart = cal.date(byAdding: .weekOfYear, value: -offset, to: thisWeek)!
+                let weekEnd   = weekStart.adding(days: 7)
+                let hours = sessions
+                    .filter { $0.type == .focus && $0.startedAt >= weekStart && $0.startedAt < weekEnd }
+                    .reduce(0.0) { $0 + $1.duration } / 3600
+                return (label: "S\(cal.component(.weekOfYear, from: weekStart))", hours: hours)
+            }
+
+        case .month:
+            let thisMonth = cal.startOfMonth(for: Date())
+            return (0..<12).reversed().map { offset -> (label: String, hours: Double) in
+                let mStart = cal.date(byAdding: .month, value: -offset, to: thisMonth)!
+                let mEnd   = cal.date(byAdding: .month, value: 1, to: mStart)!
+                let hours = sessions
+                    .filter { $0.type == .focus && $0.startedAt >= mStart && $0.startedAt < mEnd }
+                    .reduce(0.0) { $0 + $1.duration } / 3600
+                return (label: cal.shortMonthSymbols[cal.component(.month, from: mStart) - 1], hours: hours)
+            }
+
+        case .year:
+            let currentYear = cal.component(.year, from: Date())
+            return (0..<5).reversed().map { offset -> (label: String, hours: Double) in
+                let year      = currentYear - offset
+                let yearStart = cal.date(from: DateComponents(year: year))!
+                let yearEnd   = cal.date(byAdding: .year, value: 1, to: yearStart)!
+                let hours = sessions
+                    .filter { $0.type == .focus && $0.startedAt >= yearStart && $0.startedAt < yearEnd }
+                    .reduce(0.0) { $0 + $1.duration } / 3600
+                return (label: "\(year)", hours: hours)
+            }
+        }
+    }
+}
