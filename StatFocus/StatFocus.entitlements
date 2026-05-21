@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  Entitlements for Developer ID distribution (NOT App Store).
+	  Hardened runtime is required for notarization.
+	-->
+
+	<!--
+	  Allows the app to send Apple Events to other apps (NSAppleScript).
+	  Used by FocusBlockerController to read/redirect URLs in Safari/Chrome/Edge/Arc.
+	  Triggers a per-target-app TCC prompt the first time it's used; user can revoke
+	  via System Settings → Privacy & Security → Automation.
+	-->
+	<key>com.apple.security.automation.apple-events</key>
+	<true/>
+</dict>
+</plist>

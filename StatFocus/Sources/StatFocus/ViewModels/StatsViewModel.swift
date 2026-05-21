@@ -28,11 +28,13 @@ class StatsViewModel {
     // MARK: - Heatmap
 
     func heatmapData() -> [(date: Date, hours: Double)] {
-        let today = Date().dayStart
-        let startDate = today.adding(days: -364)
+        let cal = Calendar.autoupdatingCurrent
+        let year = cal.component(.year, from: Date())
+        let startDate = cal.date(from: DateComponents(year: year, month: 1, day: 1))!
+        let endDate   = cal.date(from: DateComponents(year: year, month: 12, day: 31))!
         var result: [(date: Date, hours: Double)] = []
         var current = startDate
-        while current <= today {
+        while current <= endDate {
             result.append((date: current, hours: focusHours(for: current)))
             current = current.adding(days: 1)
         }
@@ -96,13 +98,86 @@ class StatsViewModel {
             .reduce(0.0) { $0 + $1.duration } / 3600
     }
 
+    // MARK: - Hourly Focus Distribution
+
+    enum HourlyPeriod: String, CaseIterable {
+        case last7  = "7d"
+        case last30 = "30d"
+        case all    = "all"
+
+        var titleKey: String {
+            switch self {
+            case .last7:  return "hourly.7d"
+            case .last30: return "hourly.30d"
+            case .all:    return "hourly.all"
+            }
+        }
+    }
+
+    /// Returns 24 buckets (one per hour-of-day) with focused hours.
+    /// Sessions that cross hour boundaries are distributed proportionally.
+    /// `period` filters by `startedAt` cutoff (e.g. last 7 days).
+    func hourlyFocusData(
+        period: HourlyPeriod = .all,
+        now: Date = Date()
+    ) -> [(hour: Int, hours: Double)] {
+        let cal = Calendar.autoupdatingCurrent
+        var seconds = Array(repeating: 0.0, count: 24)
+
+        let cutoff = cutoffDate(for: period, now: now, calendar: cal)
+        for session in sessions where session.type == .focus {
+            if let cutoff, session.startedAt < cutoff { continue }
+            distribute(session: session, calendar: cal, into: &seconds)
+        }
+
+        return (0..<24).map { (hour: $0, hours: seconds[$0] / 3600) }
+    }
+
+    private func cutoffDate(for period: HourlyPeriod, now: Date, calendar: Calendar) -> Date? {
+        switch period {
+        case .all:    return nil
+        case .last7:  return calendar.startOfDay(for: now).adding(days: -6)
+        case .last30: return calendar.startOfDay(for: now).adding(days: -29)
+        }
+    }
+
+    private func distribute(
+        session: StudySession,
+        calendar: Calendar,
+        into seconds: inout [Double]
+    ) {
+        let end = session.startedAt.addingTimeInterval(session.duration)
+        var cursor = session.startedAt
+        while cursor < end {
+            let hour = calendar.component(.hour, from: cursor)
+            let hourStart = calendar.date(
+                bySettingHour: hour, minute: 0, second: 0, of: cursor
+            ) ?? cursor
+            let nextHourStart = calendar.date(
+                byAdding: .hour, value: 1, to: hourStart
+            ) ?? end
+            let segmentEnd = min(nextHourStart, end)
+            seconds[hour] += segmentEnd.timeIntervalSince(cursor)
+            cursor = segmentEnd
+        }
+    }
+
     // MARK: - Bar Chart
 
     enum ChartPeriod: String, CaseIterable {
-        case day   = "Dia"
-        case week  = "Semana"
-        case month = "Mês"
-        case year  = "Ano"
+        case day
+        case week
+        case month
+        case year
+
+        var titleKey: String {
+            switch self {
+            case .day:   return "period.day"
+            case .week:  return "period.week"
+            case .month: return "period.month"
+            case .year:  return "period.year"
+            }
+        }
     }
 
     func barChartData(period: ChartPeriod) -> [(label: String, hours: Double)] {

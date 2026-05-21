@@ -4,32 +4,51 @@ import SwiftUI
 struct DashboardView: View {
     @Bindable var statsViewModel: StatsViewModel
     @State private var selectedTab: Tab = .stats
+    private let loc = LocalizationManager.shared
 
-    enum Tab: String, CaseIterable {
-        case stats = "Estatísticas"
-        case settings = "Configurações"
+    enum Tab: String, CaseIterable, Identifiable {
+        case stats
+        case settings
 
-        var icon: String {
+        var id: String { rawValue }
+        var titleKey: String {
             switch self {
-            case .stats: return "chart.bar.fill"
-            case .settings: return "gear"
+            case .stats: return "tab.stats"
+            case .settings: return "tab.settings"
             }
         }
     }
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            StatsView(viewModel: statsViewModel)
-                .tabItem {
-                    Label("Estatísticas", systemImage: "chart.bar.fill")
+        VStack(spacing: 0) {
+            // Custom top bar: centered tab picker + trailing language toggle.
+            ZStack {
+                Picker("", selection: $selectedTab) {
+                    ForEach(Tab.allCases) { tab in
+                        Text(loc.t(tab.titleKey)).tag(tab)
+                    }
                 }
-                .tag(Tab.stats)
+                .pickerStyle(.segmented)
+                .frame(width: 280)
 
-            SettingsView()
-                .tabItem {
-                    Label("Configurações", systemImage: "gear")
+                HStack {
+                    Spacer()
+                    LanguageToggleButton()
+                        .padding(.trailing, 14)
                 }
-                .tag(Tab.settings)
+            }
+            .padding(.vertical, 10)
+
+            Divider()
+
+            Group {
+                switch selectedTab {
+                case .stats:
+                    StatsView(viewModel: statsViewModel)
+                case .settings:
+                    SettingsView()
+                }
+            }
         }
         .frame(minWidth: 720, minHeight: 520)
     }

@@ -4,13 +4,11 @@ import SwiftUI
 struct StatsView: View {
     @Bindable var viewModel: StatsViewModel
     @State private var chartPeriod: StatsViewModel.ChartPeriod = .day
+    @State private var hourlyPeriod: StatsViewModel.HourlyPeriod = .all
+    private let loc = LocalizationManager.shared
 
     private var heatmapData: [(date: Date, hours: Double)] {
         viewModel.heatmapData()
-    }
-
-    private var maxHoursInHeatmap: Double {
-        heatmapData.map(\.hours).max() ?? 1
     }
 
     var body: some View {
@@ -19,7 +17,7 @@ struct StatsView: View {
 
                 // — Streak ——————————————————————
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Sequência")
+                    Text(loc.t("stats.streak"))
                         .font(.headline)
                     StreakView(
                         current: viewModel.currentStreak,
@@ -29,7 +27,7 @@ struct StatsView: View {
 
                 // — Metas ——————————————————————
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Metas")
+                    Text(loc.t("stats.goals"))
                         .font(.headline)
                     GoalsView(
                         todayHours: viewModel.todayFocusHours,
@@ -41,19 +39,36 @@ struct StatsView: View {
 
                 // — Heatmap ——————————————————————
                 HeatmapView(
-                    data: heatmapData,
-                    maxHours: maxHoursInHeatmap
+                    data: heatmapData
                 )
+
+                // — Hourly Focus ————————————————————
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack {
+                        Text(loc.t("stats.hourly_title"))
+                            .font(.headline)
+                        Spacer()
+                        Picker("", selection: $hourlyPeriod) {
+                            ForEach(StatsViewModel.HourlyPeriod.allCases, id: \.self) { p in
+                                Text(loc.t(p.titleKey)).tag(p)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .frame(width: 180)
+                    }
+
+                    HourlyHeatmapView(data: viewModel.hourlyFocusData(period: hourlyPeriod))
+                }
 
                 // — Bar Chart ——————————————————————
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
-                        Text("Horas de Foco")
+                        Text(loc.t("stats.hours_title"))
                             .font(.headline)
                         Spacer()
                         Picker("", selection: $chartPeriod) {
                             ForEach(StatsViewModel.ChartPeriod.allCases, id: \.self) { p in
-                                Text(p.rawValue).tag(p)
+                                Text(loc.t(p.titleKey)).tag(p)
                             }
                         }
                         .pickerStyle(.segmented)

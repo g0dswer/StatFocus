@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  Entitlements for Mac App Store distribution.
+	  Sandbox is REQUIRED. Hardened runtime is implicit.
+	-->
+
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+
+	<!--
+	  User-selected read/write: needed for the Backup folder picker
+	  (NSOpenPanel canChooseDirectories=true → security-scoped bookmark)
+	  and Import Backup file picker.
+	-->
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+
+	<!--
+	  Bookmarks: lets us persist the security-scoped bookmark for the backup folder
+	  so backups continue working after relaunch without re-prompting.
+	-->
+	<key>com.apple.security.files.bookmarks.app-scope</key>
+	<true/>
+
+	<!--
+	  Team identifier — required so the binary's signature matches the provisioning profile.
+	-->
+	<key>com.apple.application-identifier</key>
+	<string>9A7SMX4LKH.com.thiagogruber.statfocus</string>
+	<key>com.apple.developer.team-identifier</key>
+	<string>9A7SMX4LKH</string>
+</dict>
+</plist>

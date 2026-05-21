@@ -12,7 +12,6 @@ enum TimerState {
 enum PomodoroPhase {
     case focus
     case shortBreak
-    case longBreak
 }
 
 @Observable
@@ -24,9 +23,11 @@ class TimerViewModel {
     var completedCycles: Int = 0
 
     let settings = AppSettings.shared
+    private let totalFocusState = TotalFocusState.shared
 
     private var timer: Timer?
     private var sessionStart: Date?
+    private var didNotifyFocusEndingSoon = false
     private let store: SessionStore
 
     init(store: SessionStore = .shared) {
@@ -40,7 +41,6 @@ class TimerViewModel {
         switch phase {
         case .focus:      return settings.focusDuration * 60
         case .shortBreak: return settings.shortBreakDuration * 60
-        case .longBreak:  return settings.longBreakDuration * 60
         }
     }
 
@@ -55,7 +55,8 @@ class TimerViewModel {
         return String(format: "%02d:%02d", m, s)
     }
 
-    var cycleCount: Int { settings.cyclesBeforeLongBreak }
+    var cycleCount: Int { 4 }
+    var isBreakPhase: Bool { phase == .shortBreak }
 
     // MARK: - Actions
 
@@ -63,19 +64,29 @@ class TimerViewModel {
         guard timerState != .running else { return }
         if timerState == .idle {
             sessionStart = Date()
+            if phase == .focus {
+                didNotifyFocusEndingSoon = false
+                NotificationCenter.default.post(name: .focusTimerStarted, object: nil)
+            }
         }
         timerState = .running
+        updateTotalFocusLockState()
         scheduleTimer()
     }
 
     func pause() {
         guard timerState == .running else { return }
+        guard !isTotalFocusLockedDuringFocus else { return }
         timerState = .paused
         timer?.invalidate()
+        timer = nil
+        updateTotalFocusLockState()
     }
 
     func stop() {
+        guard !isTotalFocusLockedDuringFocus else { return }
         timer?.invalidate()
+        timer = nil
         if let start = sessionStart {
             let elapsed = Date().timeIntervalSince(start)
             if elapsed >= 60 {
@@ -84,7 +95,45 @@ class TimerViewModel {
         }
         timerState = .idle
         sessionStart = nil
+        didNotifyFocusEndingSoon = false
         resetToCurrentPhase()
+        updateTotalFocusLockState()
+    }
+
+    func resetCountdown() {
+        guard !isTotalFocusLockedDuringFocus else { return }
+        timer?.invalidate()
+        timer = nil
+        timerState = .idle
+        sessionStart = nil
+        didNotifyFocusEndingSoon = false
+        resetToCurrentPhase()
+        updateTotalFocusLockState()
+    }
+
+    func skipBreak() {
+        guard isBreakPhase else { return }
+
+        let shouldResumeRunning = (timerState == .running)
+        timer?.invalidate()
+        timer = nil
+
+        phase = .focus
+        timerState = .idle
+        sessionStart = nil
+        didNotifyFocusEndingSoon = false
+        resetToCurrentPhase()
+        updateTotalFocusLockState()
+
+        if shouldResumeRunning {
+            play()
+        }
+    }
+
+    func applySettingsIfIdle() {
+        if timerState == .idle {
+            resetToCurrentPhase()
+        }
     }
 
     // MARK: - Private
@@ -98,15 +147,18 @@ class TimerViewModel {
     }
 
     private func tick() {
+        updateTotalFocusLockState()
         guard secondsRemaining > 0 else {
             completePhase()
             return
         }
         secondsRemaining -= 1
+        notifyFocusEndingSoonIfNeeded()
     }
 
     private func completePhase() {
         timer?.invalidate()
+        timer = nil
         if let start = sessionStart {
             let elapsed = Date().timeIntervalSince(start)
             saveSession(startedAt: start, duration: elapsed, type: sessionTypeForPhase())
@@ -114,20 +166,20 @@ class TimerViewModel {
         playCompletionSound()
         advancePhase()
         sessionStart = Date()
+        if phase == .focus {
+            didNotifyFocusEndingSoon = false
+            NotificationCenter.default.post(name: .focusTimerStarted, object: nil)
+        }
+        updateTotalFocusLockState()
         scheduleTimer()
     }
 
     private func advancePhase() {
         switch phase {
         case .focus:
-            completedCycles += 1
-            if completedCycles >= settings.cyclesBeforeLongBreak {
-                completedCycles = 0
-                phase = .longBreak
-            } else {
-                phase = .shortBreak
-            }
-        case .shortBreak, .longBreak:
+            completedCycles = (completedCycles + 1) % max(1, cycleCount)
+            phase = .shortBreak
+        case .shortBreak:
             phase = .focus
         }
         resetToCurrentPhase()
@@ -135,14 +187,25 @@ class TimerViewModel {
 
     private func resetToCurrentPhase() {
         secondsRemaining = totalSeconds
+        if phase == .focus {
+            didNotifyFocusEndingSoon = false
+        }
     }
 
     private func sessionTypeForPhase() -> SessionType {
         switch phase {
         case .focus:      return .focus
         case .shortBreak: return .shortBreak
-        case .longBreak:  return .longBreak
         }
+    }
+
+    private func notifyFocusEndingSoonIfNeeded() {
+        guard phase == .focus else { return }
+        guard !didNotifyFocusEndingSoon else { return }
+        guard secondsRemaining == 30 else { return }
+
+        didNotifyFocusEndingSoon = true
+        NotificationCenter.default.post(name: .focusTimerEndingSoon, object: nil)
     }
 
     private func saveSession(startedAt: Date, duration: TimeInterval, type: SessionType) {
@@ -150,6 +213,15 @@ class TimerViewModel {
         store.insert(session)
         // Notify stats view model to refresh
         NotificationCenter.default.post(name: .sessionsUpdated, object: nil)
+    }
+
+    private var isTotalFocusLockedDuringFocus: Bool {
+        settings.totalFocusEnabled && phase == .focus && timerState == .running
+    }
+
+    private func updateTotalFocusLockState() {
+        let shouldLock = settings.totalFocusEnabled && phase == .focus && timerState == .running
+        totalFocusState.setLockActive(shouldLock)
     }
 
     private func playCompletionSound() {
@@ -182,4 +254,6 @@ class TimerViewModel {
 
 extension Notification.Name {
     static let sessionsUpdated = Notification.Name("com.statfocus.sessionsUpdated")
+    static let focusTimerStarted = Notification.Name("com.statfocus.focusTimerStarted")
+    static let focusTimerEndingSoon = Notification.Name("com.statfocus.focusTimerEndingSoon")
 }

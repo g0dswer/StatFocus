@@ -6,6 +6,7 @@ struct GoalsView: View {
     let dailyGoal: Double
     let weekHours: Double
     let weeklyGoal: Double
+    private let loc = LocalizationManager.shared
 
     var dailyProgress: Double {
         guard dailyGoal > 0 else { return 0 }
@@ -21,13 +22,13 @@ struct GoalsView: View {
         HStack(spacing: 40) {
             CircularProgressView(
                 progress: dailyProgress,
-                label: "hoje",
+                label: loc.t("stats.goals.today"),
                 sublabel: "\(formatHours(todayHours)) / \(formatHours(dailyGoal))"
             )
 
             CircularProgressView(
                 progress: weeklyProgress,
-                label: "semana",
+                label: loc.t("stats.goals.week"),
                 sublabel: "\(formatHours(weekHours)) / \(formatHours(weeklyGoal))"
             )
         }

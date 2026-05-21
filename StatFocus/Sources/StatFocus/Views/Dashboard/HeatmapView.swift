@@ -3,55 +3,77 @@ import SwiftUI
 
 struct HeatmapView: View {
     let data: [(date: Date, hours: Double)]
-    let maxHours: Double
     let accent = Color(hex: "#2D6A4F")
+    @State private var hoveredItem: (date: Date, hours: Double)?
+    private let loc = LocalizationManager.shared
 
     private let cellSize: CGFloat = 11
     private let cellSpacing: CGFloat = 2
     private let weeksPerYear = 53  // safe upper bound
+    private var heatmapWidth: CGFloat {
+        CGFloat(weeksPerYear) * cellSize + CGFloat(weeksPerYear - 1) * cellSpacing
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Atividade do Ano")
+            Text(loc.t("stats.year_activity"))
                 .font(.headline)
 
-            // Month labels row
-            monthLabelsRow()
-
             // The heatmap grid: columns = weeks, rows = days of week
-            LazyVGrid(
-                columns: Array(
-                    repeating: GridItem(.fixed(cellSize), spacing: cellSpacing),
-                    count: weeksPerYear
-                ),
-                spacing: cellSpacing
-            ) {
-                ForEach(paddedData(), id: \.index) { entry in
-                    if let item = entry.item {
+            ScrollView(.horizontal, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 4) {
+                    monthLabelsRow()
+                        .frame(width: heatmapWidth, alignment: .leading)
+
+                    LazyHGrid(
+                        rows: Array(
+                            repeating: GridItem(.fixed(cellSize), spacing: cellSpacing),
+                            count: 7
+                        ),
+                        spacing: cellSpacing
+                    ) {
+                        ForEach(paddedData(), id: \.index) { entry in
+                            if let item = entry.item {
+                                RoundedRectangle(cornerRadius: 2)
+                                    .fill(cellColor(hours: item.hours))
+                                    .frame(width: cellSize, height: cellSize)
+                                    .onHover { isHovered in
+                                        if isHovered {
+                                            hoveredItem = item
+                                        } else if hoveredItem?.date == item.date {
+                                            hoveredItem = nil
+                                        }
+                                    }
+                                    .help(tooltip(for: item))
+                            } else {
+                                Color.clear
+                                    .frame(width: cellSize, height: cellSize)
+                            }
+                        }
+                    }
+                    .frame(height: cellSize * 7 + cellSpacing * 6)
+                }
+            }
+
+            // Fixed legend: 0, <1h, 1-2h, 2-4h, 4h+
+            HStack(spacing: 4) {
+                ForEach(0...4, id: \.self) { level in
+                    HStack(spacing: 3) {
                         RoundedRectangle(cornerRadius: 2)
-                            .fill(cellColor(hours: item.hours))
+                            .fill(color(for: level))
                             .frame(width: cellSize, height: cellSize)
-                            .help(tooltip(for: item))
-                    } else {
-                        Color.clear
-                            .frame(width: cellSize, height: cellSize)
+                        Text(legendLabel(for: level))
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
                     }
                 }
             }
 
-            // Legend
-            HStack(spacing: 4) {
-                Text("Menos")
-                    .font(.caption2)
+            if let hoveredItem {
+                Text(tooltip(for: hoveredItem))
+                    .font(.caption)
                     .foregroundColor(.secondary)
-                ForEach([0.0, 0.25, 0.5, 0.75, 1.0], id: \.self) { level in
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(level == 0 ? Color.gray.opacity(0.15) : accent.opacity(0.2 + level * 0.8))
-                        .frame(width: cellSize, height: cellSize)
-                }
-                Text("Mais")
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
+                    .padding(.top, 2)
             }
         }
     }
@@ -59,11 +81,36 @@ struct HeatmapView: View {
     // MARK: - Helpers
 
     private func cellColor(hours: Double) -> Color {
-        guard hours > 0, maxHours > 0 else { return Color.gray.opacity(0.12) }
-        let rawIntensity = min(hours / maxHours, 1.0)
-        // Quantize to 4 levels (like GitHub)
-        let level = (ceil(rawIntensity * 4) / 4)
-        return accent.opacity(0.2 + level * 0.8)
+        color(for: intensityLevel(hours: hours))
+    }
+
+    private func intensityLevel(hours: Double) -> Int {
+        if hours <= 0 { return 0 }
+        if hours < 1  { return 1 }
+        if hours < 2  { return 2 }
+        if hours < 4  { return 3 }
+        return 4
+    }
+
+    private func legendLabel(for level: Int) -> String {
+        switch level {
+        case 0: return "0h"
+        case 1: return "<1h"
+        case 2: return "1-2h"
+        case 3: return "2-4h"
+        case 4: return "4h+"
+        default: return ""
+        }
+    }
+
+    private func color(for level: Int) -> Color {
+        switch level {
+        case 1: return accent.opacity(0.28)
+        case 2: return accent.opacity(0.46)
+        case 3: return accent.opacity(0.68)
+        case 4: return accent.opacity(0.9)
+        default: return Color.gray.opacity(0.12)
+        }
     }
 
     private func tooltip(for item: (date: Date, hours: Double)) -> String {
@@ -71,14 +118,13 @@ struct HeatmapView: View {
         formatter.dateStyle = .medium
         let dateStr = formatter.string(from: item.date)
         if item.hours < 0.01 {
-            return "\(dateStr): sem estudo"
+            return "\(dateStr): \(loc.t("stats.no_study"))"
         }
         return "\(dateStr): \(String(format: "%.1f", item.hours))h"
     }
 
     /// Struct to hold padded grid entries with stable index
-    private struct GridEntry: Identifiable {
-        let id = UUID()
+    private struct GridEntry {
         let index: Int
         let item: (date: Date, hours: Double)?
     }
@@ -121,7 +167,7 @@ struct HeatmapView: View {
     private func monthLabelsRow() -> some View {
         let labels = monthLabelPositions()
         ZStack(alignment: .topLeading) {
-            ForEach(labels, id: \.label) { entry in
+            ForEach(Array(labels.enumerated()), id: \.offset) { _, entry in
                 Text(entry.label)
                     .font(.system(size: 9))
                     .foregroundColor(.secondary)

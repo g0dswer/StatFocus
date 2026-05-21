@@ -5,6 +5,7 @@ struct StreakView: View {
     let current: Int
     let best: Int
     let accent = Color(hex: "#2D6A4F")
+    private let loc = LocalizationManager.shared
 
     var body: some View {
         HStack(spacing: 0) {
@@ -18,7 +19,7 @@ struct StreakView: View {
                         .foregroundColor(current > 0 ? accent : .secondary)
                         .contentTransition(.numericText())
                 }
-                Text(current == 1 ? "dia seguido" : "dias seguidos")
+                Text(loc.t(current == 1 ? "stats.streak.day_one" : "stats.streak.day_many"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -33,7 +34,7 @@ struct StreakView: View {
                     .font(.system(size: 32, weight: .semibold, design: .rounded))
                     .foregroundColor(.secondary)
                     .contentTransition(.numericText())
-                Text("recorde")
+                Text(loc.t("stats.streak.record"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

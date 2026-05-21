@@ -1,6 +1,17 @@
 .build/
+.swiftpm/
 *.xcuserstate
 xcuserdata/
 DerivedData/
 *.resolved
 .DS_Store
+*.xcodeproj/
+.codex/
+
+# Build artifacts (signed/notarized binaries) — produced by scripts/build-*.sh
+build/
+
+# Signing secrets — keychain references in scripts, profiles outside repo
+*.provisionprofile
+*.p12
+*.mobileprovision

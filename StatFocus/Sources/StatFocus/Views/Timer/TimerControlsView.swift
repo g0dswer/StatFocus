@@ -3,12 +3,37 @@ import SwiftUI
 
 struct TimerControlsView: View {
     @Bindable var viewModel: TimerViewModel
+    @ObservedObject private var totalFocusState = TotalFocusState.shared
     let accent = Color(hex: "#2D6A4F")
+    private let loc = LocalizationManager.shared
+
+    private var lockBlocksFocusControls: Bool {
+        totalFocusState.isLockActive && viewModel.phase == .focus
+    }
 
     var body: some View {
         HStack(spacing: 20) {
+            // Skip break button — visible only during break phases
+            if viewModel.isBreakPhase {
+                Button {
+                    viewModel.skipBreak()
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(Color.gray.opacity(0.08))
+                            .frame(width: 36, height: 36)
+                        Image(systemName: "forward.end.fill")
+                            .font(.system(size: 13))
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .buttonStyle(.plain)
+                .help(loc.t("timer.help.skip_break"))
+                .transition(.scale.combined(with: .opacity))
+            }
+
             // Stop button — only visible when running or paused
-            if viewModel.timerState == .running || viewModel.timerState == .paused {
+            if (viewModel.timerState == .running || viewModel.timerState == .paused) && !lockBlocksFocusControls {
                 Button {
                     viewModel.stop()
                 } label: {
@@ -28,7 +53,9 @@ struct TimerControlsView: View {
             // Play / Pause button
             Button {
                 if viewModel.timerState == .running {
-                    viewModel.pause()
+                    if !lockBlocksFocusControls {
+                        viewModel.pause()
+                    }
                 } else {
                     viewModel.play()
                 }
@@ -37,13 +64,14 @@ struct TimerControlsView: View {
                     Circle()
                         .fill(accent.opacity(0.15))
                         .frame(width: 52, height: 52)
-                    Image(systemName: viewModel.timerState == .running ? "pause.fill" : "play.fill")
+                    Image(systemName: lockBlocksFocusControls ? "lock.fill" : (viewModel.timerState == .running ? "pause.fill" : "play.fill"))
                         .font(.system(size: 20))
                         .foregroundColor(accent)
-                        .offset(x: viewModel.timerState == .running ? 0 : 2)
+                        .offset(x: lockBlocksFocusControls ? 0 : (viewModel.timerState == .running ? 0 : 2))
                 }
             }
             .buttonStyle(.plain)
+            .help(lockBlocksFocusControls ? loc.t("timer.help.lock_pause") : "")
         }
         .animation(.spring(response: 0.3), value: viewModel.timerState == .idle)
     }
