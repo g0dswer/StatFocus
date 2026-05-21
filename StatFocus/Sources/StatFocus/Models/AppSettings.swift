@@ -96,6 +96,10 @@ class AppSettings: ObservableObject {
         didSet { UserDefaults.standard.set(focusBlockBrowserBundleID, forKey: "focusBlockBrowserBundleID") }
     }
 
+    /// Timestamp of the first time the app was launched on this device.
+    /// Set once; never overwritten. Used to compute the free-trial window.
+    private(set) var firstLaunchAt: Date
+
     var focusBlockMode: FocusBlockMode {
         get { FocusBlockMode(rawValue: focusBlockModeRaw) ?? .app }
         set { focusBlockModeRaw = newValue.rawValue }
@@ -127,6 +131,15 @@ class AppSettings: ObservableObject {
         focusBlockAllowedAppBundleID = ud.string(forKey: "focusBlockAllowedAppBundleID") ?? ""
         focusBlockAllowedWebsiteHost = ud.string(forKey: "focusBlockAllowedWebsiteHost") ?? ""
         focusBlockBrowserBundleID = ud.string(forKey: "focusBlockBrowserBundleID") ?? FocusBrowser.safari.rawValue
+
+        // First-launch timestamp — set once, never overwritten.
+        if let storedFirst = ud.object(forKey: "firstLaunchAt") as? Date {
+            firstLaunchAt = storedFirst
+        } else {
+            let now = Date()
+            firstLaunchAt = now
+            ud.set(now, forKey: "firstLaunchAt")
+        }
     }
 
     func normalizedBlockedWebsiteHost() -> String {

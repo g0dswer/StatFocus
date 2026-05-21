@@ -25,6 +25,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupFocusBlocker()
         setupSeedDataListener()
         showTimerPanel(bringToFront: true)
+
+        #if APP_STORE
+        // Eagerly refresh purchase entitlements + load product so the paywall has
+        // localized price ready when the user first sees it.
+        Task { @MainActor in
+            await StoreManager.shared.refreshEntitlements()
+            await StoreManager.shared.loadProducts()
+        }
+        #endif
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

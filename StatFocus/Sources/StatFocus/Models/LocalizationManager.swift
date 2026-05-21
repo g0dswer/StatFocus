@@ -191,6 +191,33 @@ enum StringCatalog {
         // Soft blocker banner
         "blocker.soft.title": "Foco ativo",
         "blocker.soft.message": "Você abriu %@",
+
+        // Trial banner
+        "trial.banner.welcome": "Bem-vindo! Você tem 7 dias grátis pra testar tudo.",
+        "trial.banner.days_one": "1 dia restante no seu teste grátis",
+        "trial.banner.days_many": "%d dias restantes no seu teste grátis",
+        "trial.banner.cta": "Comprar",
+
+        // Paywall (shown when trial expired)
+        "paywall.title": "Seu teste grátis acabou",
+        "paywall.subtitle": "Continue usando o StatFocus para sempre por um pagamento único.",
+        "paywall.feature.timer": "Cronômetro Pomodoro flutuante",
+        "paywall.feature.stats": "Estatísticas, heatmap anual e horários de foco",
+        "paywall.feature.goals": "Metas diárias e semanais",
+        "paywall.feature.offline": "Tudo offline — seus dados ficam no seu Mac",
+        "paywall.cta_buy": "Comprar por %@",
+        "paywall.cta_buy_loading": "Carregando…",
+        "paywall.cta_restore": "Restaurar compras",
+        "paywall.error.generic": "Algo deu errado. Tenta de novo.",
+
+        // Settings — Premium section
+        "settings.section.premium": "Premium",
+        "settings.premium.status.active": "Você é Premium — obrigado! 🎉",
+        "settings.premium.status.trial": "Teste grátis — %d dias restantes",
+        "settings.premium.status.expired": "Teste grátis expirado",
+        "settings.premium.btn.buy": "Comprar StatFocus",
+        "settings.premium.btn.restore": "Restaurar compra",
+        "settings.premium.help": "Pagamento único, sem assinatura. Vitalício e em todos os Macs da sua Apple ID.",
     ]
 
     private static let en: [String: String] = [
@@ -327,5 +354,32 @@ enum StringCatalog {
         // Soft blocker banner
         "blocker.soft.title": "Focus active",
         "blocker.soft.message": "You opened %@",
+
+        // Trial banner
+        "trial.banner.welcome": "Welcome! You have 7 days to try everything for free.",
+        "trial.banner.days_one": "1 day left in your free trial",
+        "trial.banner.days_many": "%d days left in your free trial",
+        "trial.banner.cta": "Buy",
+
+        // Paywall
+        "paywall.title": "Your free trial is over",
+        "paywall.subtitle": "Keep using StatFocus forever for a single payment.",
+        "paywall.feature.timer": "Floating Pomodoro timer",
+        "paywall.feature.stats": "Stats, year heatmap, and focus-by-hour chart",
+        "paywall.feature.goals": "Daily and weekly goals",
+        "paywall.feature.offline": "Fully offline — your data stays on your Mac",
+        "paywall.cta_buy": "Buy for %@",
+        "paywall.cta_buy_loading": "Loading…",
+        "paywall.cta_restore": "Restore purchases",
+        "paywall.error.generic": "Something went wrong. Please try again.",
+
+        // Settings — Premium section
+        "settings.section.premium": "Premium",
+        "settings.premium.status.active": "You're Premium — thank you! 🎉",
+        "settings.premium.status.trial": "Free trial — %d day(s) left",
+        "settings.premium.status.expired": "Free trial expired",
+        "settings.premium.btn.buy": "Buy StatFocus",
+        "settings.premium.btn.restore": "Restore purchase",
+        "settings.premium.help": "Single payment, no subscription. Lifetime and works on every Mac signed in with your Apple ID.",
     ]
 }

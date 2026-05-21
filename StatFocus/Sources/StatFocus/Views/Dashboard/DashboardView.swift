@@ -5,6 +5,10 @@ struct DashboardView: View {
     @Bindable var statsViewModel: StatsViewModel
     @State private var selectedTab: Tab = .stats
     private let loc = LocalizationManager.shared
+    #if APP_STORE
+    @State private var trial = TrialState.shared
+    @State private var showingPaywall = false
+    #endif
 
     enum Tab: String, CaseIterable, Identifiable {
         case stats
@@ -21,6 +25,13 @@ struct DashboardView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            #if APP_STORE
+            // Trial countdown banner shown only while in trial.
+            if trial.isInTrial {
+                TrialBanner(trial: trial, onBuy: { showingPaywall = true })
+            }
+            #endif
+
             // Custom top bar: centered tab picker + trailing language toggle.
             ZStack {
                 Picker("", selection: $selectedTab) {
@@ -51,5 +62,18 @@ struct DashboardView: View {
             }
         }
         .frame(minWidth: 720, minHeight: 520)
+        #if APP_STORE
+        .overlay {
+            // Hard paywall: covers everything when the trial expired.
+            if trial.isLocked {
+                PaywallView()
+                    .transition(.opacity)
+            }
+        }
+        .sheet(isPresented: $showingPaywall) {
+            PaywallView()
+                .frame(minWidth: 480, minHeight: 600)
+        }
+        #endif
     }
 }

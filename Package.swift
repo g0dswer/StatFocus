@@ -25,7 +25,8 @@ let package = Package(
         .testTarget(
             name: "StatFocusTests",
             dependencies: ["StatFocus"],
-            path: "Tests/StatFocusTests"
+            path: "Tests/StatFocusTests",
+            swiftSettings: appStoreSwiftSettings
         )
     ]
 )

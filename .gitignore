@@ -15,3 +15,6 @@ build/
 *.provisionprofile
 *.p12
 *.mobileprovision
+
+# Loose icon source (lives at ~/Desktop, not in repo)
+/icone-statfocus.png

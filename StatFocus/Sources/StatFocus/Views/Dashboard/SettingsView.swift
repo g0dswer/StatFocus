@@ -10,6 +10,10 @@ struct SettingsView: View {
     @ObservedObject private var totalFocusState = TotalFocusState.shared
     @State private var showClearDataConfirmation = false
     private let loc = LocalizationManager.shared
+    #if APP_STORE
+    @State private var trial = TrialState.shared
+    @State private var store = StoreManager.shared
+    #endif
 
     var body: some View {
         Form {
@@ -20,6 +24,29 @@ struct SettingsView: View {
                         .foregroundColor(.secondary)
                 }
             }
+
+            #if APP_STORE
+            Section(loc.t("settings.section.premium")) {
+                premiumStatusRow
+
+                if !trial.isPremium {
+                    HStack(spacing: 12) {
+                        Button(action: { Task { await store.buy() } }) {
+                            Text(loc.t("settings.premium.btn.buy"))
+                        }
+                        .disabled(store.product == nil || store.purchaseState == .purchasing)
+
+                        Button(action: { Task { await store.restore() } }) {
+                            Text(loc.t("settings.premium.btn.restore"))
+                        }
+                    }
+                }
+
+                Text(loc.t("settings.premium.help"))
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+            #endif
 
             Section(loc.t("settings.section.timer")) {
                 Stepper(
@@ -262,6 +289,24 @@ struct SettingsView: View {
             Text(loc.t("settings.data.clear_alert.message"))
         }
     }
+
+    #if APP_STORE
+    @ViewBuilder
+    private var premiumStatusRow: some View {
+        if trial.isPremium {
+            Label(loc.t("settings.premium.status.active"), systemImage: "checkmark.seal.fill")
+                .foregroundColor(.green)
+        } else if trial.isInTrial {
+            Label(
+                String(format: loc.t("settings.premium.status.trial"), trial.daysRemaining),
+                systemImage: "clock.fill"
+            )
+        } else {
+            Label(loc.t("settings.premium.status.expired"), systemImage: "lock.fill")
+                .foregroundColor(.red)
+        }
+    }
+    #endif
 
     private func selectAllowedApp() {
         let panel = NSOpenPanel()
