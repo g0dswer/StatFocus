@@ -114,6 +114,11 @@ cp "$ICNS" "$APP/Contents/Resources/AppIcon.icns"
 # Embed provisioning profile (Mac App Store requires this)
 cp "$PROFILE_PATH" "$APP/Contents/embedded.provisionprofile"
 
+# Strip com.apple.quarantine extended attribute recursively — ASC rejects any file
+# in the bundle that carries it (the profile picks it up when downloaded via Safari).
+xattr -dr com.apple.quarantine "$APP" 2>/dev/null || true
+xattr -dr com.apple.quarantine "$PROFILE_PATH" 2>/dev/null || true
+
 cat > "$APP/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
